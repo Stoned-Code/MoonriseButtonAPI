@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace MoonriseV2Mod.API.MoonriseButtonAPI
 {
-    public class ButtonBase
+    public class LPButtonBase
     {
         private GameObject buttonObject;
         private Color backgroundColor;
@@ -18,6 +19,29 @@ namespace MoonriseV2Mod.API.MoonriseButtonAPI
             UnityEngine.Object.Destroy(buttonObject);
         }
 
-        public virtual void SetBackgroundColor()
+        public void SetActive(bool active)
+        {
+            buttonObject.gameObject.SetActive(active);
+        }
+
+        public void SetInteractable(bool interractable)
+        {
+            if (interractable)
+            {
+                SetBackgroundColor(backgroundColor);
+                SetTextColor(textColor);
+            }
+
+            else
+            {
+                SetBackgroundColor(new Color(0.5f, 0.5f, 0.5f, 1f));
+                SetTextColor(new Color(0.7f, 0.7f, 0.7f, 1f));
+            }
+
+            buttonObject.GetComponent<Button>().interactable = interractable;
+        }
+
+        public virtual void SetBackgroundColor(Color color) { }
+        public virtual void SetTextColor(Color color) { }
     }
 }
