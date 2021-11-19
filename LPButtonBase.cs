@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MoonriseV2Mod.API.MoonriseButtonAPI
+namespace MoonriseButtonAPI
 {
     public class LPButtonBase
     {
