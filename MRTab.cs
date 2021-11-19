@@ -30,17 +30,10 @@ namespace MoonriseButtonAPI
             this.buttonObject.name = buttonName;
             this.button = buttonObject.GetComponent<Button>();
             this.buttonObject.GetComponentInChildren<MenuTab>().field_Public_String_0 = $"QM_{buttonName}";
-            this.buttonObject.transform.SetSiblingIndex(2 + startIndex);
-            startIndex++;
+            this.buttonObject.transform.SetSiblingIndex(3 + startIndex);
+
             SetButtonImage(buttonImage);
             SetTooltip(tooltip);
-            MethodInfo info = buttonObject.GetComponent<MenuTab>().GetType().GetMethod("ShowTabContent");
-            string vars = "";
-            foreach (LocalVariableInfo variable in info.GetMethodBody().LocalVariables)
-            {
-                vars += variable.ToString() + "\n";
-            }
-            MelonLogger.Msg("Here's something: " + vars);
             SetAction(action);
 
             backgroundColor = buttonObject.transform.Find("Background").GetComponent<Image>().color;
