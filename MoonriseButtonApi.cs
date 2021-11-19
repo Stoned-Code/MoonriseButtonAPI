@@ -9,5 +9,6 @@ namespace MoonriseButtonAPI
     public static class MoonriseButtonApi
     {
         public static string modIdentifier = "Moonrise";
+        public static List<MRTab> allTabs = new List<MRTab>();
     }
 }
